@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>RuneWithAView</Name>
+      <ViewSelectedBy>
+        <TypeName>System.Text.Rune</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem>
+                <Label>ToString</Label>
+                <ScriptBlock>if ($_.Value -ge 32) { [string]$_} else { '•' }</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Value</Label>
+                <ScriptBlock>'0x{0:X}' -f $_.Value</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+    <View>
+      <Name>RuneWithAView</Name>
+      <ViewSelectedBy>
+        <TypeName>System.Text.Rune</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>ToString</Label>
+            <Width>8</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>8</Width>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>if ($_.Value -ge 32) { [string]$_} else { '•' }</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <FormatString>0x{0:X}</FormatString>
+                <PropertyName>Value</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    <View>
+      <Name>RuneWithAView</Name>
+      <ViewSelectedBy>
+        <TypeName>System.Text.Rune</TypeName>
+      </ViewSelectedBy>
+      <WideControl>
+        <WideEntries>
+          <WideEntry>
+            <WideItem>
+              <ScriptBlock>if ($_.Value -ge 32) { [string]$_ + ' 0x{0:X}' -f $_.Value } else { '• 0x{0:X}' -f $_.Value }</ScriptBlock>
+            </WideItem>
+          </WideEntry>
+        </WideEntries>
+      </WideControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
